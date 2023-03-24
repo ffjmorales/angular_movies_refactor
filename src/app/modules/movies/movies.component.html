@@ -1,0 +1,22 @@
+<section>
+    <div class="row mt-4">
+        <div *ngFor="let movie of movies.results" class="col-4 mb-3">
+            <p-card [header]="movie.title" [style]="{width: '360px'}" styleClass="p-card-shadow">
+                <ng-template pTemplate="header">
+                    <img alt="Card" [src]="ImgBaseUrl + movie.poster_path" alt="movies" class="img-movies">
+                </ng-template>
+                <p>{{movie.overview}}</p>
+                <strong>Fecha de lanzamiento: </strong><label>{{movie.release_date}}</label>
+                <div>
+                    <strong>Promedio de votos: </strong><label>{{movie.vote_average}}</label>
+                </div>
+                <div>
+                    <strong>Popularidad: </strong><label>{{movie.popularity}}</label>
+                </div>
+                <ng-template pTemplate="footer">
+                    <button pButton type="button" label="Ver detalle" (click)="seeDetail(movie.id)" icon="pi pi-eye"></button>
+                </ng-template>
+            </p-card>
+        </div>
+    </div>
+</section>
